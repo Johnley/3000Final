@@ -1,35 +1,67 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="docs-assets/ico/favicon.png">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>
-ModPack Builder Beta
-</title>
-<?php @ require_once ('stylefile.html'); ?>
-</head>
-<body>
-<?php @ require_once ('top.html'); ?>
-<?php @ require_once ('menu.html'); ?>
-<div id='main'>
-<div id='inner'>
+    <title>Jabberwocky</title>
 
-<?php
-$pagename = preg_replace("/[^a-z0-9\/]/i", "", $_GET['page']);
-if(file_exists($pagename.'.html')) {
-    @ require_once ($pagename.'.html');
-}
-elseif(file_exists($pagename.'.php')) {
-    @ require_once ($pagename.'.php');
-} else {
-    @ require_once ('main.html');
-}
-?>
-            
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap-cerulean.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link href="css/simple.css" rel="stylesheet">
+  </head>
+
+  <body>
+<?php include("facebookdiv.php") ?>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="navbar-brand" href="index.php">Project Jabberwocky</a> </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="index.php">Home</a></li>
+        <li><a href="create.php">Create Task</a></li>
+      <li id="account-picture"></li>
+      <li id="account"></li>
+      </ul>
+
+    </div>
+    
+    <!--/.nav-collapse --> 
+  </div>
 </div>
-</div>
-<?php @ require_once ('right.html'); ?>
-<p></p>
-<?php @ require_once ('footer.html'); ?>
-</body>
+    <div class="container">
+
+      <br>
+      <div id="jumbotron">
+      </div>
+      <div class="bs-example">
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading"><h3>Recent completed activities</h3></div>
+        <div class="panel-body">
+          <?php include('getrecenttasks.php'); ?>
+        </div>
+      </div>
+    </div>
+<!-- insert php code to load completed tasks sorted by date from database, reloading with ajax every 5 seconds. -->
+          </div>
+      </div>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  </body>
 </html>

@@ -124,6 +124,9 @@ DocProject/Help/html
 # Click-Once directory
 publish/
 
+#mysqlsettings
+mysqli_connect.php
+
 # Publish Web Output
 *.Publish.xml
 *.pubxml
