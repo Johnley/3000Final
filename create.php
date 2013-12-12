@@ -72,6 +72,7 @@ function post_data(){
 	var task_description = $('#task_description').val();
 	var userid;
 	var date_due = $('#date_due').val();
+	var public = $('#public').val();
 	document.getElementById("progressActual").setAttribute("style","width: 50%")
   if (response.status === 'connected') {
     var userid = response.authResponse.userID;
@@ -83,7 +84,8 @@ function post_data(){
 	  name:task_name,
       descr:task_description,
 	  userid:userid,
-	  date:date_due
+	  date:date_due,
+	  public:public
     },
 	function(data){
     document.getElementById("progressActual").setAttribute("style","width: 100%");
@@ -135,8 +137,16 @@ elem.value = today;
       <input type="text" class="form-control" placeholder="Task Description" id="task_description">
       <span class="input-group-addon"><span class="glyphicon glyphicon-list"></span></span></div>
     <br><div class="input-group">
-     <input class="form-control" placeholder="Date Due" data-provide="datepicker" data-date-autoclose="true" data-date-start-date="" data-date-format="yyyy-mm-dd" id="date_due"><span id="" class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+     <input class="form-control" placeholder="Date Due" data-provide="datepicker" data-date-autoclose="true" data-date-start-date="<?php echo date("Y-m-d"); ?>" data-date-format="yyyy-mm-dd" id="date_due"><span id="" class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
      </div>
+     <br>
+     <div class="input-group">
+                 <span class="input-group-addon">
+        <input type="checkbox" id="public">
+      </span>
+      <input type="text" class="form-control" value="Check to make this task public." readonly="readonly">
+
+    </div>
     <br>
     <div class="input-group">
       <button type="button" class="btn btn-default" onClick="doTaskSubmit()">Submit Task</button>

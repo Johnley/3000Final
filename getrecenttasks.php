@@ -4,7 +4,7 @@ include("mysqli_connect.php");
 	//build query
 $sql = "SELECT `users`.`userName`, `tasks`.`task_name`, `tasks`.`task_descr`, `tasks`.`completed_date`\n"
     . "FROM `users`\n"
-    . " LEFT JOIN `jabberwocky`.`tasks` ON `users`.`userId` = `tasks`.`user_Id` WHERE `tasks`.`complete` = 1 \n"
+    . " LEFT JOIN `jabberwocky`.`tasks` ON `users`.`userId` = `tasks`.`user_Id` WHERE `tasks`.`complete` = 1 AND `tasks`.`public` = 1 \n"
     . " LIMIT 0, 30 ";
 
 	//Execute query

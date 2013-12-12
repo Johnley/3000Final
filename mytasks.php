@@ -85,7 +85,16 @@ while($row = mysqli_fetch_array($result)){
 	$display_string .= "<td>$task_name</td>";
 	$display_string .= "<td>$task_description</td>";
 	$display_string .= "<td>$row[due_date]</td>";
-	$display_string .= "<td><a class=\"btn btn-success btn-sm\" href=\"mytasks.php?complete=$row[task_Id]\" role=\"button\">Complete</a><br><br><a class=\"btn btn-danger btn-sm\" href=\"mytasks.php?delete=$row[task_Id]\" role=\"button\">Delete</a></td>";
+	$display_string .= "<td><div class=\"btn-group\">
+    <button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\">
+      Actions
+      <span class=\"caret\"></span>
+    </button>
+    <ul class=\"dropdown-menu\">
+      <li><a href=\"mytasks.php?complete=$row[task_Id]\">Complete</a></li>
+      <li><a href=\"mytasks.php?delete=$row[task_Id]\">Delete</a></li>
+    </ul>
+  </div></td>";
 	$display_string .= "</tr>";
 	
 }
