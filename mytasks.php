@@ -79,9 +79,11 @@ $display_string .= "<th></th>";
 $display_string .= "</tr>";
 
 while($row = mysqli_fetch_array($result)){
+	$task_name = htmlspecialchars($row['task_name']);
+	$task_description = htmlspecialchars($row['task_descr']);
 	$display_string .= "<tr>";
-	$display_string .= "<td>$row[task_name]</td>";
-	$display_string .= "<td>$row[task_descr]</td>";
+	$display_string .= "<td>$task_name</td>";
+	$display_string .= "<td>$task_description</td>";
 	$display_string .= "<td>$row[due_date]</td>";
 	$display_string .= "<td><a class=\"btn btn-success btn-sm\" href=\"mytasks.php?complete=$row[task_Id]\" role=\"button\">Complete</a><br><br><a class=\"btn btn-danger btn-sm\" href=\"mytasks.php?delete=$row[task_Id]\" role=\"button\">Delete</a></td>";
 	$display_string .= "</tr>";
@@ -121,9 +123,11 @@ echo $display_string;
 		$display_string .= "</tr>";
 
 while($row = mysqli_fetch_array($result)){
+	$task_name = htmlspecialchars($row['task_name']);
+	$task_description = htmlspecialchars($row['task_descr']);
 	$display_string .= "<tr>";
-	$display_string .= "<td>$row[task_name]</td>";
-	$display_string .= "<td>$row[task_descr]</td>";
+	$display_string .= "<td>$task_name</td>";
+	$display_string .= "<td>$task_description</td>";
 	$display_string .= "<td>$row[completed_date]</td>";
 	$display_string .= "<td><a class=\"btn btn-danger btn-sm\" href=\"mytasks.php?delete=$row[task_Id]\" role=\"button\">Delete</a></td>";
 	$display_string .= "</tr>";

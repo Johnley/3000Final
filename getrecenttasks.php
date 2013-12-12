@@ -20,10 +20,12 @@ $display_string .= "<th>Date Finished</th>";
 $display_string .= "</tr>";
 
 while($row = mysqli_fetch_array($qry_result)){
+	$task_name = htmlspecialchars($row['task_name']);
+	$task_description = htmlspecialchars($row['task_descr']);
 	$display_string .= "<tr>";
 	$display_string .= "<td>$row[userName]</td>";
-	$display_string .= "<td>$row[task_name]</td>";
-	$display_string .= "<td>$row[task_descr]</td>";
+	$display_string .= "<td>$task_name</td>";
+	$display_string .= "<td>$task_description</td>";
 	$display_string .= "<td>$row[completed_date]</td>";
 	$display_string .= "</tr>";
 	
