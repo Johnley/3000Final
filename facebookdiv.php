@@ -40,7 +40,7 @@ function showLoginButton() {
     '<a onclick="doLogin()">Login</a>'
   );
   document.getElementById('jumbotron').innerHTML = (
-    '<div class="jumbotron"><h1>NEW. INNOVATIVE.</h1><p class="lead">Wow.</p><p><a class="btn btn-lg btn-success" href="create.php" role="button">Get Tasking!</a></p></div>'
+    '<div class="jumbotron"><h1>A new way to manage whats next.</h1><p class="lead">Wow.</p><p><a class="btn btn-lg btn-success" href="create.php" role="button">Get Tasking!</a></p></div>'
   );
 }
 function onStatus(response) {
